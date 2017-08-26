@@ -18,7 +18,7 @@ public class Calculadora {
         CalcularIPTU c = new CalcularIPTU();
         
         //PARÂMETROS(TIPO DO IMÓVEL, VALOR DO IMÓVEL, DESCONTO)
-        System.out.println(c.calcularIPTU("RESIDENCIAL", 40000.00, 0.00));
+        System.out.println(c.calcularIPTU("RESIDENCIAL", 450000.00, 0.00));
     }
 
 }
