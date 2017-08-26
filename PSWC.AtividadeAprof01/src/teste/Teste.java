@@ -1,10 +1,10 @@
-package Teste;
+package teste;
 import java.util.ArrayList;
 
-import Basic.AparelhoSom;
-import Basic.CD;
-import Basic.CDPlayer;
-import Basic.Musica;
+import basic.AparelhoSom;
+import basic.CD;
+import basic.CDPlayer;
+import basic.Musica;
 
 public class Teste {
 
