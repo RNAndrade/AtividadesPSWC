@@ -2,10 +2,19 @@ package basic;
 
 public class AparelhoSom extends Eletronico {
 
-	private short potencia;
+	private int potencia;
 	private byte volume = 0;
 	private Player player;
 	private String funcao;
+	
+	public AparelhoSom() {
+		super();
+	}
+	
+	public AparelhoSom(String marca, int potencia) {
+		this.setMarca(marca);
+		this.potencia = potencia;
+	}
 
 	public void alterarVolume(String comando) {
 		if (comando == "+") {
@@ -41,11 +50,11 @@ public class AparelhoSom extends Eletronico {
 		}
 	}
 
-	public short getPotencia() {
+	public int getPotencia() {
 		return potencia;
 	}
 
-	public void setPotencia(short potencia) {
+	public void setPotencia(int potencia) {
 		this.potencia = potencia;
 	}
 
