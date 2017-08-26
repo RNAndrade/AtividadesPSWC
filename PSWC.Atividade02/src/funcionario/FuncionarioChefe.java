@@ -1,4 +1,4 @@
-package Funcionario;
+package funcionario;
 
 public class FuncionarioChefe extends Funcionario {
 
@@ -48,7 +48,7 @@ public class FuncionarioChefe extends Funcionario {
 
 	public void setFuncionarioAssessor(Funcionario funcionarioAssessor) {
 		if (funcionarioAssessor instanceof FuncionarioHorario || funcionarioAssessor instanceof FuncionarioChefe) {
-			System.out.println("Assessor não é do tipo Funcionário");
+			System.out.println("Assessor nï¿½o ï¿½ do tipo Funcionï¿½rio");
 		} else {
 			this.funcionarioAssessor = funcionarioAssessor;
 		}
