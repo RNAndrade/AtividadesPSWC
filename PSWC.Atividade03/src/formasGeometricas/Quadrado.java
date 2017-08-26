@@ -1,4 +1,4 @@
-package FormasGeometricas;
+package formasGeometricas;
 
 public class Quadrado extends Retangulo {
 
