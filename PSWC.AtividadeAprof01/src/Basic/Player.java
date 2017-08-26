@@ -2,9 +2,19 @@ package Basic;
 
 public class Player {
 
-	private Integer numMusica;
-	private Integer tempoMusica;
+	private int numMusica;
+	private int tempoMusica;
 
+	public Player() {
+		super();
+	}
+	
+	public Player(int numMusica, int tempoMusica) {
+		super();
+		this.numMusica = numMusica;
+		this.tempoMusica = tempoMusica;
+	}
+	
 	public void play() {
 		CDPlayer cdPlayer = new CDPlayer();
 		this.numMusica = 1;
@@ -26,19 +36,19 @@ public class Player {
 		System.out.println("Número da música é [nome da música] + [nome do artista]");
 	}
 
-	public Integer getNumMusica() {
+	public int getNumMusica() {
 		return numMusica;
 	}
 
-	public void setNumMusica(Integer numMusica) {
+	public void setNumMusica(int numMusica) {
 		this.numMusica = numMusica;
 	}
 
-	public Integer getTempoMusica() {
+	public int getTempoMusica() {
 		return tempoMusica;
 	}
 
-	public void setTempoMusica(Integer tempoMusica) {
+	public void setTempoMusica(int tempoMusica) {
 		this.tempoMusica = tempoMusica;
 	}
 }

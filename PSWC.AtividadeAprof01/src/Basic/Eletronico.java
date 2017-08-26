@@ -5,11 +5,22 @@ public class Eletronico {
 	private String marca;
 	private String modelo;
 	private boolean indicadorON;
-	
+
+	public Eletronico() {
+		super();
+	}
+
+	public Eletronico(String marca, String modelo, boolean indicadorON) {
+		super();
+		this.marca = marca;
+		this.modelo = modelo;
+		this.indicadorON = indicadorON;
+	}
+
 	public void ligar() {
 		this.indicadorON = true;
 	}
-	
+
 	public void desligar() {
 		this.indicadorON = false;
 	}
