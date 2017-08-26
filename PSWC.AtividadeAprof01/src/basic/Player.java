@@ -18,12 +18,12 @@ public class Player {
 	
 	public void play(int numMusica) {
 		this.numMusica = 1;
-		System.out.println("Executando a música: " + this.getMusica().toString());
+		System.out.println("Tocando música: " + this.getMusica().toString());
 	}
 
 	public void stop() {
 		this.numMusica = 0;
-		System.out.println("Player parado");
+		System.out.println("STOP");
 	}
 
 	public void avancarMusica() {

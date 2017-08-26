@@ -4,7 +4,8 @@ public class AparelhoSom extends Eletronico {
 
 	private int potencia;
 	private byte volume = 0;
-	private Player player;
+	private CDPlayer cdPlayer;
+	private USBPlayer usbPlayer;
 	private String funcao;
 	
 	public AparelhoSom() {
@@ -12,8 +13,11 @@ public class AparelhoSom extends Eletronico {
 	}
 	
 	public AparelhoSom(String marca, int potencia) {
+		super();
 		this.setMarca(marca);
 		this.potencia = potencia;
+		cdPlayer = new CDPlayer();
+		usbPlayer = new USBPlayer();
 	}
 
 	public void alterarVolume(String comando) {
@@ -34,17 +38,12 @@ public class AparelhoSom extends Eletronico {
 
 	public void alterarFuncao(String funcao) {
 		if (funcao == "CDPlayer") {
-			Player player = new CDPlayer();
-			this.player = player;
 			this.setFuncao(funcao);
 			System.out.println("Função: " + funcao);
 		} else if (funcao == "USBPlayer") {
-			Player player = new USBPlayer();
-			this.player = player;
 			this.setFuncao(funcao);
 			System.out.println("Função: " + funcao);
 		} else if (funcao == "RÁDIO") {
-			this.setFuncao(null);
 			this.setFuncao(funcao);
 			System.out.println("Função: " + funcao);
 		}
@@ -66,13 +65,6 @@ public class AparelhoSom extends Eletronico {
 		this.volume = volume;
 	}
 
-	public Player getPlayer() {
-		return player;
-	}
-
-	public void setPlayer(Player player) {
-		this.player = player;
-	}
 
 	public String getFuncao() {
 		return funcao;
@@ -80,6 +72,22 @@ public class AparelhoSom extends Eletronico {
 
 	public void setFuncao(String funcao) {
 		this.funcao = funcao;
+	}
+
+	public CDPlayer getCdPlayer() {
+		return cdPlayer;
+	}
+
+	public void setCdPlayer(CDPlayer cdPlayer) {
+		this.cdPlayer = cdPlayer;
+	}
+
+	public USBPlayer getUsbPlayer() {
+		return usbPlayer;
+	}
+
+	public void setUsbPlayer(USBPlayer usbPlayer) {
+		this.usbPlayer = usbPlayer;
 	}
 
 }
