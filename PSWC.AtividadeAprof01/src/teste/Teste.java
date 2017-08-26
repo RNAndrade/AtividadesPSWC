@@ -43,7 +43,7 @@ public class Teste {
 			cd.setMusicas(musicas);
 			cd.setArtista("Los Hermanos");
 			cdPlayer.colocarCD(cd);
-			
+			cdPlayer.play();
 		}
 		
 		

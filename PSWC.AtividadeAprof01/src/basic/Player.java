@@ -2,9 +2,10 @@ package basic;
 
 public class Player {
 
-	private int numMusica;
-	private int tempoMusica;
-
+	protected int numMusica;
+	protected int tempoMusica;
+	Musica musica = new Musica();
+	
 	public Player() {
 		super();
 	}
@@ -15,10 +16,9 @@ public class Player {
 		this.tempoMusica = tempoMusica;
 	}
 	
-	public void play() {
-		CDPlayer cdPlayer = new CDPlayer();
+	public void play(int numMusica) {
 		this.numMusica = 1;
-		System.out.println("Executando a música + nme música" + cdPlayer.getCdCarregado().getMusicas().get(this.numMusica));
+		System.out.println("Executando a música: " + this.getMusica().toString());
 	}
 
 	public void stop() {
@@ -50,5 +50,13 @@ public class Player {
 
 	public void setTempoMusica(int tempoMusica) {
 		this.tempoMusica = tempoMusica;
+	}
+
+	public Musica getMusica() {
+		return musica;
+	}
+
+	public void setMusica(Musica musica) {
+		this.musica = musica;
 	}
 }

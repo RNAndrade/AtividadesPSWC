@@ -6,6 +6,10 @@ public class Musica {
 	private String compositor;
 	private int tempo;
 	
+	public Musica() {
+		super();
+	}
+	
 	public Musica(String nome, String compositor, int tempo) {
 		super();
 		this.nome = nome;
