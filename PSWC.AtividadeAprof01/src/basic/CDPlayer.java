@@ -47,7 +47,7 @@ public class CDPlayer extends Player {
 				}
 			}
 		}
-		System.out.println("Musica: " + this.getCdCarregado().getMusicas().get(getNumMusica()).getNome()
+		System.out.println("Playing: " + this.getCdCarregado().getMusicas().get(getNumMusica()).getNome()
 				+ this.getCdCarregado().getArtista());
 	}
 

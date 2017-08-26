@@ -19,10 +19,12 @@ public class Eletronico {
 
 	public void ligar() {
 		this.indicadorON = true;
+		System.out.println("ON");
 	}
 
 	public void desligar() {
 		this.indicadorON = false;
+		System.out.println("OFF");
 	}
 
 	public String getMarca() {
