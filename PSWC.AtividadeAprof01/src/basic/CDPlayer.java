@@ -15,22 +15,22 @@ public class CDPlayer extends Player {
 
 	public void colocarCD(CD cdCarregado) {
 		this.setCdCarregado(cdCarregado);
-		System.out.println("Carregado CD de: " + this.cdCarregado.getArtista());
+		System.out.println("Loading:  " + this.cdCarregado.getArtista());
 	}
 
 	public void tirarCD() {
 		if (getCdCarregado() != null) {
-			System.out.println("Retirado CD de: " + this.cdCarregado.getArtista());
+			System.out.println("Unloading : " + this.cdCarregado.getArtista());
 			this.setCdCarregado(null);
 		} else {
-			System.out.println("CD-Player vazio!");
+			System.out.println("CDPlayer is empty!");
 		}
 	}
 	
 	@Override
 	public void play(int numMusica) {
 		numMusica = 1;
-		System.out.println("Tocando música: " + this.getCdCarregado().getMusicas().get(numMusica).getNome());
+		System.out.println("Playing: " + this.getCdCarregado().getMusicas().get(numMusica).getNome());
 	}
 
 	@Override
@@ -59,7 +59,7 @@ public class CDPlayer extends Player {
 				}
 			}
 		}
-		System.out.println("Musica: " + this.getCdCarregado().getMusicas().get(getNumMusica()).getNome()
+		System.out.println("Playing: " + this.getCdCarregado().getMusicas().get(getNumMusica()).getNome()
 				+ this.getCdCarregado().getArtista());
 	}
 

@@ -17,7 +17,7 @@ public class USBPlayer extends Player{
 	@Override
 	public void play(int numero_musica) {
 		numero_musica = 1;
-		System.out.println("Tocando música " + this.getMusicas().get(getNumMusica()).getCompositor());
+		System.out.println("Playing: " + this.getMusicas().get(getNumMusica()).getCompositor());
 	}
 
 	@Override
@@ -36,7 +36,7 @@ public class USBPlayer extends Player{
 				}
 			}
 		}
-		System.out.println("Música: " + this.getMusicas().get(getNumMusica()).getNome().toString());
+		System.out.println("Playing: " + this.getMusicas().get(getNumMusica()).getNome().toString());
 	}
 	
 	@Override
@@ -45,7 +45,7 @@ public class USBPlayer extends Player{
 			for (int i = 0; i <= this.musicas.size(); i--) {
 				numMusica = i;
 			}
-			System.out.print("Musica: " + this.getMusicas().get(getNumMusica()).getNome().toString());
+			System.out.print("Playing: " + this.getMusicas().get(getNumMusica()).getNome().toString());
 		}
 	}
 
