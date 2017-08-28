@@ -28,7 +28,7 @@ public class CDPlayer extends Player {
 	}
 	
 	@Override
-	public void play(int numMusica) {
+	public void play() {
 		numMusica = 1;
 		System.out.println("Playing: " + this.getCdCarregado().getMusicas().get(numMusica).getNome());
 	}

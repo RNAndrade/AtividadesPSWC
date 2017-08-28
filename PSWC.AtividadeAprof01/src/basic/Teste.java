@@ -43,7 +43,7 @@ public class Teste {
 		xyz.alterarVolume("+");
 		xyz.alterarFuncao("CDPlayer");
 		xyz.getCdPlayer().setCdCarregado(cd);
-		xyz.getCdPlayer().play(1);
+		xyz.getCdPlayer().play();
 		xyz.getCdPlayer().avancarMusica();
 		xyz.getCdPlayer().avancarMusica();
 		xyz.getCdPlayer().stop();

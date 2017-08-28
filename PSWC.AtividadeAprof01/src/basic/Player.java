@@ -16,7 +16,7 @@ public class Player {
 		this.tempoMusica = tempoMusica;
 	}
 	
-	public void play(int numMusica) {
+	public void play() {
 		this.numMusica = 1;
 		System.out.println("Tocando música: " + this.getMusica().toString());
 	}

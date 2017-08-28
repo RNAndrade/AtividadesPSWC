@@ -15,8 +15,8 @@ public class USBPlayer extends Player{
 	}
 	
 	@Override
-	public void play(int numero_musica) {
-		numero_musica = 1;
+	public void play() {
+		numMusica = 1;
 		System.out.println("Playing: " + this.getMusicas().get(getNumMusica()).getCompositor());
 	}
 
