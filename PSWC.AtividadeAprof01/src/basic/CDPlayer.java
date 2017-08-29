@@ -26,11 +26,13 @@ public class CDPlayer extends Player {
 			System.out.println("CDPlayer is empty!");
 		}
 	}
-	
+
 	@Override
 	public void play() {
 		numMusica = 1;
-		System.out.println("Playing: " + this.getCdCarregado().getMusicas().get(numMusica).getNome());
+		System.out.println(
+				"Playing: " + numMusica + " - " + this.getCdCarregado().getMusicas().get(numMusica - 1).getNome()
+						+ " - " + this.getCdCarregado().getArtista());
 	}
 
 	@Override
@@ -40,27 +42,25 @@ public class CDPlayer extends Player {
 	}
 
 	public void avancarMusica() {
-		for (int i = 0; i < this.getCdCarregado().getMusicas().size(); i++) {
-			if (numMusica >= 1) {
-				if (numMusica < i) {
-					numMusica++;
-				}
-			}
+		if (numMusica < this.getCdCarregado().getMusicas().size()) {
+			numMusica++;
+			System.out.println(
+					"Playing: " + numMusica + " - " + this.getCdCarregado().getMusicas().get(numMusica - 1).getNome()
+							+ " - " + this.getCdCarregado().getArtista());
+		} else {
+			System.out.println("Última música já em execução!");
 		}
-		System.out.println("Playing: " + this.getCdCarregado().getMusicas().get(getNumMusica()).getNome()
-				+ this.getCdCarregado().getArtista());
 	}
 
 	public void recuarMusica() {
-		if (numMusica != 0) {
-			for (int i = numMusica; i >= this.getCdCarregado().getMusicas().size();) {
-				while (i != 1) {
-					numMusica--;
-				}
-			}
+		if (numMusica > 1) {
+			numMusica--;
+			System.out.println(
+					"Playing: " + numMusica + " - " + this.getCdCarregado().getMusicas().get(numMusica - 1).getNome()
+							+ " - " + this.getCdCarregado().getArtista());
+		} else {
+			System.out.println("Primeira música já em execução!");
 		}
-		System.out.println("Playing: " + this.getCdCarregado().getMusicas().get(getNumMusica()).getNome()
-				+ this.getCdCarregado().getArtista());
 	}
 
 	public CD getCdCarregado() {

@@ -46,6 +46,14 @@ public class Teste {
 		xyz.getCdPlayer().play();
 		xyz.getCdPlayer().avancarMusica();
 		xyz.getCdPlayer().avancarMusica();
+		xyz.getCdPlayer().avancarMusica();
+		xyz.getCdPlayer().avancarMusica();
+		xyz.getCdPlayer().avancarMusica();
+		xyz.getCdPlayer().recuarMusica();
+		xyz.getCdPlayer().recuarMusica();
+		xyz.getCdPlayer().recuarMusica();
+		xyz.getCdPlayer().recuarMusica();
+		xyz.getCdPlayer().recuarMusica();	
 		xyz.getCdPlayer().stop();
 		xyz.getCdPlayer().tirarCD();
 		xyz.alterarFuncao("RÁDIO");
@@ -53,7 +61,7 @@ public class Teste {
 		xyz.alterarVolume("-");
 		xyz.alterarFuncao("USBPlayer");
 		xyz.getUsbPlayer().setMusicas(pendrive);
-		xyz.getUsbPlayer().avancarMusica(2);
+		xyz.getUsbPlayer().avancarMusica();
 		xyz.alterarVolume("+");
 		xyz.alterarVolume("+");
 		xyz.alterarVolume("+");
@@ -79,7 +87,7 @@ public class Teste {
 		xyz.alterarVolume("+");
 		xyz.alterarVolume("+");
 		xyz.alterarVolume("+");
-		xyz.getUsbPlayer().avancarMusica(12);
+		xyz.getUsbPlayer().avancarMusica();
 		xyz.desligar();
 	}
 }

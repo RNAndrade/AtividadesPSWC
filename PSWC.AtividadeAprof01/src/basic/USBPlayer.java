@@ -26,17 +26,9 @@ public class USBPlayer extends Player{
 		System.out.println("STOP");
 	}
 	
-	public void avancarMusica(int numMusica) {
-		if (numMusica >= 0) {
-			numMusica++;
-		} else {
-			for (int i = 0; i <= this.musicas.size(); i++) {
-				if (numMusica > i) {
-					numMusica = 1;
-				}
-			}
-		}
-		System.out.println("Playing: " + this.getMusicas().get(getNumMusica()).getNome().toString());
+	public void avancarMusica() {
+		numMusica++;
+		System.out.println("Playing: " + this.getMusicas().get(numMusica).getNome().toString());
 	}
 	
 	@Override
