@@ -41,12 +41,12 @@ public class USBPlayer extends Player {
 
 	@Override
 	public void recuarMusica() {
-		if (numMusica < this.getMusicas().size() - 1) {
+		if (numMusica > 0) {
 			numMusica--;
 			System.out.println("Playing: " + (numMusica + 1) + " - " + this.getMusicas().get(numMusica).getNome()
 					+ " - " + this.getMusicas().get(numMusica).getCompositor());
 		} else {
-			numMusica = 0;
+			numMusica = this.getMusicas().size() - 1;
 			System.out.println("Playing: " + (numMusica + 1) + " - " + this.getMusicas().get(numMusica).getNome()
 					+ " - " + this.getMusicas().get(numMusica).getCompositor());
 		}

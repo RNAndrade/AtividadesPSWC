@@ -89,7 +89,16 @@ public class Teste {
 		xyz.alterarVolume("+");
 		xyz.getUsbPlayer().avancarMusica();
 		xyz.getUsbPlayer().avancarMusica();
-		xyz.getUsbPlayer().recuarMusica();
+		xyz.getUsbPlayer().avancarMusica();
+		xyz.getUsbPlayer().avancarMusica();
+		xyz.getUsbPlayer().avancarMusica();
+		xyz.getUsbPlayer().avancarMusica();
+		xyz.getUsbPlayer().avancarMusica();
+		xyz.getUsbPlayer().avancarMusica();
+		xyz.getUsbPlayer().avancarMusica();
+		xyz.getUsbPlayer().avancarMusica();
+		xyz.getUsbPlayer().avancarMusica();
+		xyz.getUsbPlayer().avancarMusica();
 		xyz.desligar();
 	}
 }
