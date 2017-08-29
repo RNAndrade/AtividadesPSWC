@@ -2,22 +2,23 @@ package basic;
 
 import java.util.ArrayList;
 
-public class USBPlayer extends Player{
+public class USBPlayer extends Player {
 
 	private ArrayList<Musica> musicas;
-	
+
 	public USBPlayer() {
 		super();
 	}
-	
+
 	public USBPlayer(ArrayList<Musica> musicas) {
 		this.musicas = musicas;
 	}
-	
+
 	@Override
 	public void play() {
 		numMusica = 1;
-		System.out.println("Playing: " + this.getMusicas().get(getNumMusica()).getCompositor());
+		System.out.println("Playing: " + numMusica + " - " + this.getMusicas().get(getNumMusica()).getCompositor());
+
 	}
 
 	@Override
@@ -25,19 +26,29 @@ public class USBPlayer extends Player{
 		numMusica = 0;
 		System.out.println("STOP");
 	}
-	
+
 	public void avancarMusica() {
-		numMusica++;
-		System.out.println("Playing: " + this.getMusicas().get(numMusica).getNome().toString());
+		if (numMusica < this.getMusicas().size() - 1) {
+			numMusica++;
+			System.out.println("Playing: " + (numMusica + 1) + " - " + this.getMusicas().get(numMusica).getNome()
+					+ " - " + this.getMusicas().get(numMusica).getCompositor());
+		} else {
+			numMusica = 0;
+			System.out.println("Playing: " + (numMusica + 1) + " - " + this.getMusicas().get(numMusica).getNome()
+					+ " - " + this.getMusicas().get(numMusica).getCompositor());
+		}
 	}
-	
+
 	@Override
 	public void recuarMusica() {
-		if (numMusica != 0) {
-			for (int i = 0; i <= this.musicas.size(); i--) {
-				numMusica = i;
-			}
-			System.out.print("Playing: " + this.getMusicas().get(getNumMusica()).getNome().toString());
+		if (numMusica < this.getMusicas().size() - 1) {
+			numMusica--;
+			System.out.println("Playing: " + (numMusica + 1) + " - " + this.getMusicas().get(numMusica).getNome()
+					+ " - " + this.getMusicas().get(numMusica).getCompositor());
+		} else {
+			numMusica = 0;
+			System.out.println("Playing: " + (numMusica + 1) + " - " + this.getMusicas().get(numMusica).getNome()
+					+ " - " + this.getMusicas().get(numMusica).getCompositor());
 		}
 	}
 

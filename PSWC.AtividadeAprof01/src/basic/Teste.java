@@ -88,6 +88,8 @@ public class Teste {
 		xyz.alterarVolume("+");
 		xyz.alterarVolume("+");
 		xyz.getUsbPlayer().avancarMusica();
+		xyz.getUsbPlayer().avancarMusica();
+		xyz.getUsbPlayer().recuarMusica();
 		xyz.desligar();
 	}
 }
