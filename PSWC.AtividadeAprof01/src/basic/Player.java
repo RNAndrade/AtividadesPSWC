@@ -17,23 +17,19 @@ public class Player {
 	}
 	
 	public void play() {
-		this.numMusica = 1;
-		System.out.println("Tocando música: " + this.getMusica().toString());
+		
 	}
 
 	public void stop() {
-		this.numMusica = 0;
-		System.out.println("STOP");
+		
 	}
 
 	public void avancarMusica() {
-		// fazer um for até o limite de musicas do CD (Collection musicas.size());
-		System.out.println("Número da música é [nome da música] + [nome do artista]");
+	
 	}
 
 	public void recuarMusica() {
-		// fazer um for até 1
-		System.out.println("Número da música é [nome da música] + [nome do artista]");
+	
 	}
 
 	public int getNumMusica() {
