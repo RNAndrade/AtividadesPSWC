@@ -8,10 +8,8 @@ public class Sistema {
 
 	public static void main(String[] args) {
 		cadastrarUsuario();
-		DAOUsuario dao = new DAOUsuario();
-		System.out.println(dao.getUsuario());
 	}
-	
+
 	private static void cadastrarUsuario() {
 		Fachada fachada = new Fachada();
 		Usuario user = new Usuario();
@@ -22,11 +20,11 @@ public class Sistema {
 		user.setEmail("rnandrade@gmail.com");
 		try {
 			fachada.addUsuario(user);
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 }
