@@ -7,24 +7,20 @@ import atividade04.fachada.Fachada;
 public class Sistema {
 
 	public static void main(String[] args) {
-		cadastrarUsuario();
-	}
-
-	private static void cadastrarUsuario() {
+		Usuario user1 = new Usuario(1, "rnandrade", "senha", "Renato Andrade", "rnandrade@gmail.com");
+		Usuario user2 = new Usuario(2, "rnandrade", "senha", "Renato Andrade", "rnandrade@gmail.com");
+		Usuario user3 = new Usuario(3, "rnandrade", "senha", "Renato Andrade", "rnandrade@gmail.com");
 		Fachada fachada = new Fachada();
-		Usuario user = new Usuario();
-		user.setCodigo(1);
-		user.setLogin("rnandrade");
-		user.setSenha("senha");
-		user.setNome("Renato");
-		user.setEmail("rnandrade@gmail.com");
 		try {
-			fachada.addUsuario(user);
-
+			fachada.addUsuario(user1);
+			fachada.addUsuario(user2);
+			fachada.addUsuario(user3);
+			for (Usuario users : fachada.listar()) {
+				System.out.println("Código: " + users.getCodigo() + " Nome: " + users.getNome() + " Login: " + users.getLogin());
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		
 	}
-
 }

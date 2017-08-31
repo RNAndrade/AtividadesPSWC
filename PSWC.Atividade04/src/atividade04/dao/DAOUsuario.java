@@ -9,8 +9,13 @@ public class DAOUsuario implements IDAOUsuario{
 	ArrayList<Usuario> usuario = new ArrayList<>();
 	
 	@Override
-	public void addUsuario(Usuario usuario) throws Exception {
+	public void inserir(Usuario usuario) throws Exception {
         this.usuario.add(usuario);
+	}
+	
+	@Override
+	public ArrayList<Usuario> listar() throws Exception {
+		return this.usuario;
 	}
 
 	public ArrayList<Usuario> getUsuario() {

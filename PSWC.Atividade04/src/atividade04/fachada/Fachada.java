@@ -1,5 +1,7 @@
 package atividade04.fachada;
 
+import java.util.ArrayList;
+
 import atividade04.basic.Usuario;
 import atividade04.negocio.RNUsuario;
 
@@ -9,7 +11,12 @@ public class Fachada implements IFachada {
 
 	@Override
 	public void addUsuario(Usuario usuario) throws Exception {
-		user.addUsuario(usuario);
+		user.inserir(usuario);
+	}
+
+	@Override
+	public ArrayList<Usuario> listar() throws Exception {
+		return user.listar();
 	}
 
 }
