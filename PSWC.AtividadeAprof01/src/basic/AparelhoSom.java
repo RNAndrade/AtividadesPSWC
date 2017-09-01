@@ -65,7 +65,6 @@ public class AparelhoSom extends Eletronico {
 		this.volume = volume;
 	}
 
-
 	public String getFuncao() {
 		return funcao;
 	}
