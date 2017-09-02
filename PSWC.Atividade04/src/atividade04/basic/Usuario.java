@@ -2,7 +2,7 @@ package atividade04.basic;
 
 public class Usuario {
 
-	private int codigo;
+	private Integer codigo;
 	private String login;
 	private String senha;
 	private String nome;
@@ -12,14 +12,14 @@ public class Usuario {
 		super();
 	}
 
-	public Usuario(int codigo, String login, String senha) {
+	public Usuario(Integer codigo, String login, String senha) {
 		super();
 		this.codigo = codigo;
 		this.login = login;
 		this.senha = senha;
 	}
 
-	public Usuario(int codigo, String login, String senha, String nome, String email) {
+	public Usuario(Integer codigo, String login, String senha, String nome, String email) {
 		super();
 		this.codigo = codigo;
 		this.login = login;
@@ -27,12 +27,12 @@ public class Usuario {
 		this.nome = nome;
 		this.email = email;
 	}
-
+	
 	public int getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
 
@@ -66,5 +66,10 @@ public class Usuario {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	@Override
+	public String toString() {
+		return "Código: " + this.getCodigo() + " Nome: " + this.getNome() + " Login: " + this.getLogin() + "Senha: " + this.getSenha();
 	}
 }

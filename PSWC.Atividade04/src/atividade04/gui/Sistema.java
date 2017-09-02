@@ -1,26 +1,20 @@
 package atividade04.gui;
 
 import atividade04.basic.Usuario;
-import atividade04.dao.DAOUsuario;
 import atividade04.fachada.Fachada;
 
 public class Sistema {
 
 	public static void main(String[] args) {
-		Usuario user1 = new Usuario(1, "rnandrade", "senha", "Renato Andrade", "rnandrade@gmail.com");
-		Usuario user2 = new Usuario(2, "rnandrade", "senha", "Renato Andrade", "rnandrade@gmail.com");
-		Usuario user3 = new Usuario(3, "rnandrade", "senha", "Renato Andrade", "rnandrade@gmail.com");
+
 		Fachada fachada = new Fachada();
+		Usuario user = new Usuario(4, "mpereira", "senha", "Maria Pereira", "mpereira@gmail.com");;
+		
 		try {
-			fachada.addUsuario(user1);
-			fachada.addUsuario(user2);
-			fachada.addUsuario(user3);
-			for (Usuario users : fachada.listar()) {
-				System.out.println("Código: " + users.getCodigo() + " Nome: " + users.getNome() + " Login: " + users.getLogin());
-			}
+			fachada.logar("rnandrade", "senha");
+			fachada.cadastrarUsuario(user);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 	}
 }
