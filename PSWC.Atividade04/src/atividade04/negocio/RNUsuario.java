@@ -32,29 +32,24 @@ public class RNUsuario implements IRNUsuario {
 
 		if (login.isEmpty() || senha.isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Campos obrigatórios não informados!");
+		} else if (aux.getLogin() == null) {
+			JOptionPane.showMessageDialog(null, "Login inválido!");
+		} else if (aux.getSenha() == senha) {
+			JOptionPane.showMessageDialog(null, "Login realizado com sucesso!");
 		} else {
-			if (aux.getLogin() == null) {
-				JOptionPane.showMessageDialog(null, "Login inválido!");
-			} else {
-				if (aux.getSenha() == senha) {
-					JOptionPane.showMessageDialog(null, "Login realizado com sucesso!");
-				} else {
-					JOptionPane.showMessageDialog(null, "Senha inválida!");
-				}
-			}
+			JOptionPane.showMessageDialog(null, "Senha inválida!");
 		}
 	}
 
 	public void cadastrarUsuario(Usuario usuario) throws Exception {
 		Usuario aux = dao.pesquisar(usuario.getLogin());
+
 		if (aux.getLogin() == usuario.getLogin()) {
 			JOptionPane.showMessageDialog(null, "Login indisponível!");
+		} else if (usuario.getLogin().isEmpty() || usuario.getSenha().isEmpty() || usuario.getNome().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Campo obrigatório vazio!");
 		} else {
 			this.inserir(usuario);
-			/*
-			 * ArrayList<Usuario> u = this.listar(); for (int i = 0; i < u.size(); i++) {
-			 * System.out.println(u.get(i)); }
-			 */
 			JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!");
 		}
 	}
