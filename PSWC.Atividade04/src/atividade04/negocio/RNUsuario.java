@@ -2,6 +2,8 @@ package atividade04.negocio;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import atividade04.basic.Usuario;
 import atividade04.dao.DAOUsuario;
 
@@ -29,15 +31,15 @@ public class RNUsuario implements IRNUsuario {
 		Usuario aux = dao.pesquisar(login);
 
 		if (login.isEmpty() || senha.isEmpty()) {
-			System.out.println("Campos obrigatórios não informados!");
+			JOptionPane.showMessageDialog(null, "Campos obrigatórios não informados!");
 		} else {
 			if (aux.getLogin() == null) {
-				System.out.println("Login inválido!");
+				JOptionPane.showMessageDialog(null, "Login inválido!");
 			} else {
 				if (aux.getSenha() == senha) {
-					System.out.println("Login realizado com sucesso!");
+					JOptionPane.showMessageDialog(null, "Login realizado com sucesso!");
 				} else {
-					System.out.println("Senha inválida!");
+					JOptionPane.showMessageDialog(null, "Senha inválida!");
 				}
 			}
 		}
@@ -46,14 +48,14 @@ public class RNUsuario implements IRNUsuario {
 	public void cadastrarUsuario(Usuario usuario) throws Exception {
 		Usuario aux = dao.pesquisar(usuario.getLogin());
 		if (aux.getLogin() == usuario.getLogin()) {
-			System.out.println("Login indisponível!");
+			JOptionPane.showMessageDialog(null, "Login indisponível!");
 		} else {
 			this.inserir(usuario);
 			/*
 			 * ArrayList<Usuario> u = this.listar(); for (int i = 0; i < u.size(); i++) {
 			 * System.out.println(u.get(i)); }
 			 */
-			System.out.println("Usuário cadastrado com sucesso!");
+			JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!");
 		}
 	}
 }
