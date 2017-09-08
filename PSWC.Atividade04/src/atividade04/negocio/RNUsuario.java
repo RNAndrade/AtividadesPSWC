@@ -34,7 +34,7 @@ public class RNUsuario implements IRNUsuario {
 			JOptionPane.showMessageDialog(null, "Campos obrigatórios não informados!");
 		} else if (aux.getLogin() == null) {
 			JOptionPane.showMessageDialog(null, "Login inválido!");
-		} else if (aux.getSenha() == senha) {
+		} else if (aux.getSenha().equals(senha)) {
 			JOptionPane.showMessageDialog(null, "Login realizado com sucesso!");
 		} else {
 			JOptionPane.showMessageDialog(null, "Senha inválida!");

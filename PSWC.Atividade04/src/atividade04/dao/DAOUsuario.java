@@ -27,7 +27,7 @@ public class DAOUsuario implements IDAOUsuario {
 	public Usuario pesquisar(String login) throws Exception {
 		Usuario user = new Usuario();
 		for (Usuario usuario : usuarios) {
-			if (usuario.getLogin() == login) {
+			if (usuario.getLogin().equals(login)) {
 				user = usuario;
 			}
 		}
