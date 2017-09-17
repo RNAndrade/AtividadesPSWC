@@ -110,6 +110,7 @@ public class DadosFutebol {
 
 		transaction.commit();
 		factory.close();
+		managerFactory.close();
 	}
 
 }
