@@ -12,6 +12,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 @Entity
 public class Juiz {
 	@Id
@@ -23,6 +26,7 @@ public class Juiz {
 	private Calendar dataNascimento;
 	private Double salario;
 	@OneToMany(mappedBy = "juiz")
+	@Cascade(CascadeType.DELETE)
 	private List<Jogo> jogos;
 
 	public Juiz() {

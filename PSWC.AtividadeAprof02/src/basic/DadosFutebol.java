@@ -15,7 +15,7 @@ public class DadosFutebol {
 		EntityTransaction transaction = factory.getTransaction();
 		transaction.begin();
 
-		// --------------Técnicos---------------
+		//--------------Técnicos---------------
 		Calendar data1 = Calendar.getInstance();
 		data1.set(1958, 03, 10);
 		Calendar data2 = Calendar.getInstance();

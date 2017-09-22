@@ -11,6 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 @Entity
 public class Time {
 
@@ -22,10 +25,13 @@ public class Time {
 	private String estado;
 	private Integer pontos;
 	@OneToMany(mappedBy = "time")
+	@Cascade(CascadeType.DELETE)
 	private List<Jogador> jogadores;
 	@OneToOne
 	@JoinColumn(name = "id_tecnico")
+	@Cascade(CascadeType.DELETE)
 	private Tecnico tecnico;
+	
 
 	public Time() {
 		super();

@@ -11,6 +11,9 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 @Entity
 public class Tecnico {
 
@@ -23,6 +26,7 @@ public class Tecnico {
 	private Calendar dataNascimento;
 	private Double salario;
 	@OneToOne(mappedBy = "tecnico")
+	@Cascade(CascadeType.DELETE)
 	private Time time;
 
 	public Tecnico() {

@@ -9,9 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 public class Jogo {
@@ -24,10 +26,12 @@ public class Jogo {
 	private Integer placarDois;
 	@Temporal(TemporalType.DATE)
 	private Calendar dataJogo;
-	@OneToOne
+	@ManyToOne
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "timeCasa")
 	private Time timeCasa;
-	@OneToOne
+	@ManyToOne
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "timeVisitante")
 	private Time timeVisitante;
 	@ManyToOne

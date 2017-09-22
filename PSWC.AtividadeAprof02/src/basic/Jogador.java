@@ -12,6 +12,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 @Entity
 public class Jogador {
 
@@ -30,6 +33,7 @@ public class Jogador {
 	private Integer amareloQtd;
 	@ManyToOne
 	@JoinColumn(name = "id_time")
+	@Cascade(CascadeType.DELETE)
 	private Time time;
 
 	public Jogador() {
