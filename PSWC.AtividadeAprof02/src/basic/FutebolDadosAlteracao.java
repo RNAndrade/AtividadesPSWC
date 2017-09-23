@@ -36,7 +36,7 @@ public class FutebolDadosAlteracao {
 		Jogador player3 = factory.find(Jogador.class, new Integer(1));
 		factory.remove(player3);
 
-		// -------------Excluir Cruzeiro, Jogadores e Técnico-------------
+		// -------------Excluir Cruzeiro Jogadores e Técnico-------------
 		Time team2 = factory.find(Time.class, new Integer(2));
 		factory.remove(team2);*/
 
