@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -31,7 +33,10 @@ public class Time {
 	@JoinColumn(name = "id_tecnico")
 	@Cascade(CascadeType.DELETE)
 	private Tecnico tecnico;
-	
+	@ManyToMany
+	@JoinTable(name = "campeonato_time", joinColumns = { @JoinColumn(name = "id_time") }, inverseJoinColumns = {
+			@JoinColumn(name = "id_campeonato") })
+	private List<Campeonato> campeonatos;
 
 	public Time() {
 		super();
@@ -91,6 +96,14 @@ public class Time {
 
 	public void setTecnico(Tecnico tecnico) {
 		this.tecnico = tecnico;
+	}
+
+	public List<Campeonato> getCampeonatos() {
+		return campeonatos;
+	}
+
+	public void setCampeonatos(List<Campeonato> campeonatos) {
+		this.campeonatos = campeonatos;
 	}
 
 }

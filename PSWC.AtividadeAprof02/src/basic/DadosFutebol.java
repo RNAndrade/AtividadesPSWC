@@ -1,5 +1,6 @@
 package basic;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import javax.persistence.EntityManager;
@@ -40,12 +41,12 @@ public class DadosFutebol {
 		factory.persist(judge2);
 
 		// ---------------Times---------------
-		Tecnico coachOne = factory.find(Tecnico.class, new Integer(1));
-		Tecnico coachTwo = factory.find(Tecnico.class, new Integer(2));
-		Tecnico coachThree = factory.find(Tecnico.class, new Integer(3));
-		Time team1 = new Time("São Paulo", "SP", 15, coachOne);
-		Time team2 = new Time("Cruzeiro", "MG", 32, coachTwo);
-		Time team3 = new Time("Flamengo", "RJ", 30, coachThree);
+		Tecnico pauloAutuori = factory.find(Tecnico.class, new Integer(1));
+		Tecnico manoMenezes = factory.find(Tecnico.class, new Integer(2));
+		Tecnico marceloOliveira = factory.find(Tecnico.class, new Integer(3));
+		Time team1 = new Time("São Paulo", "SP", 15, pauloAutuori);
+		Time team2 = new Time("Cruzeiro", "MG", 32, manoMenezes);
+		Time team3 = new Time("Flamengo", "RJ", 30, marceloOliveira);
 		factory.persist(team1);
 		factory.persist(team2);
 		factory.persist(team3);
@@ -64,15 +65,17 @@ public class DadosFutebol {
 		Calendar data11 = Calendar.getInstance();
 		data11.set(1984, 11, 25);
 
-		Time teamOne = factory.find(Time.class, new Integer(1));
-		Time teamTwo = factory.find(Time.class, new Integer(2));
+		//--------------Instância de times------------
+		Time saoPaulo = factory.find(Time.class, new Integer(1));
+		Time cruzeiro = factory.find(Time.class, new Integer(2));
+		Time flamengo = factory.find(Time.class, new Integer(3));
 
-		Jogador player1 = new Jogador("Rogério Ceni", teamOne, data6, 88000.00, 01, true, false, 2, 1);
-		Jogador player2 = new Jogador("Alex Silva", teamOne, data7, 45000.00, 02, true, false, 2, 1);
-		Jogador player3 = new Jogador("Fabão", teamTwo, data8, 52500.00, 03, true, false, 3, 0);
-		Jogador player4 = new Jogador("Edcarlos", teamTwo, data9, 70000.00, 04, false, false, 1, 0);
-		Jogador player5 = new Jogador("Souza", teamOne, data10, 65000.00, 05, true, true, 1, 1);
-		Jogador player6 = new Jogador("Ilsinho", teamOne, data11, 43860.90, 06, false, false, 2, 0);
+		Jogador player1 = new Jogador("Rogério Ceni", saoPaulo, data6, 88000.00, 01, true, false, 2, 1);
+		Jogador player2 = new Jogador("Alex Silva", saoPaulo, data7, 45000.00, 02, true, false, 2, 1);
+		Jogador player3 = new Jogador("Fabão", cruzeiro, data8, 52500.00, 03, true, false, 3, 0);
+		Jogador player4 = new Jogador("Edcarlos", cruzeiro, data9, 70000.00, 04, false, false, 1, 0);
+		Jogador player5 = new Jogador("Souza", saoPaulo, data10, 65000.00, 05, true, true, 1, 1);
+		Jogador player6 = new Jogador("Ilsinho", saoPaulo, data11, 43860.90, 06, false, false, 2, 0);
 
 		factory.persist(player1);
 		factory.persist(player2);
@@ -91,23 +94,40 @@ public class DadosFutebol {
 		Calendar data15 = Calendar.getInstance();
 		data15.set(2013, 9, 19);
 
-		Time teamUm = factory.find(Time.class, new Integer(1));
-		Time teamDois = factory.find(Time.class, new Integer(2));
-		Time teamTres = factory.find(Time.class, new Integer(3));
+		Juiz armandoMarques = factory.find(Juiz.class, new Integer(1));
+		Juiz pauloOliveira = factory.find(Juiz.class, new Integer(2));
 
-		Juiz judgeOne = factory.find(Juiz.class, new Integer(1));
-		Juiz judgeTwo = factory.find(Juiz.class, new Integer(2));
-
-		Jogo game1 = new Jogo(teamUm, teamDois, 2, 1, data12, judgeTwo);
-		Jogo game2 = new Jogo(teamDois, teamUm, 0, 0, data13, judgeOne);
-		Jogo game3 = new Jogo(teamTres, teamDois, 1, 1, data14, judgeTwo);
-		Jogo game4 = new Jogo(teamUm, teamTres, 0, 0, data15, judgeOne);
+		Jogo game1 = new Jogo(saoPaulo, cruzeiro, 2, 1, data12, pauloOliveira);
+		Jogo game2 = new Jogo(cruzeiro, saoPaulo, 0, 0, data13, armandoMarques);
+		Jogo game3 = new Jogo(flamengo, cruzeiro, 1, 1, data14, pauloOliveira);
+		Jogo game4 = new Jogo(saoPaulo, flamengo, 0, 0, data15, armandoMarques);
 
 		factory.persist(game1);
 		factory.persist(game2);
 		factory.persist(game3);
 		factory.persist(game4);
 
+		// ---------------Campeonatos---------------
+		Calendar dataInicio1 = Calendar.getInstance();
+		dataInicio1.set(2013, 7, 13);
+		Calendar dataInicio2 = Calendar.getInstance();
+		dataInicio2.set(2013, 10, 10);
+		Calendar dataFim1 = Calendar.getInstance();
+		dataFim1.set(2013, 7, 13);
+		Calendar dataFim2 = Calendar.getInstance();
+		dataFim2.set(2013, 10, 10);
+		
+		ArrayList<Time> times = new ArrayList<>();
+		times.add(flamengo);
+		times.add(saoPaulo);
+
+		Campeonato camp1 = new Campeonato("Campeonato Brasileiro", dataInicio1, dataFim1, times);
+		Campeonato camp2 = new Campeonato("Taça Glória do Goitá", dataInicio2, dataFim2, times);
+
+		factory.persist(camp1);
+		factory.persist(camp2);
+
+		
 		transaction.commit();
 		factory.close();
 		managerFactory.close();
