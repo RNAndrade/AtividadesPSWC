@@ -34,6 +34,7 @@ public class Time {
 	@Cascade(CascadeType.DELETE)
 	private Tecnico tecnico;
 	@ManyToMany
+	@Cascade(CascadeType.ALL)
 	@JoinTable(name = "campeonato_time", joinColumns = { @JoinColumn(name = "id_time") }, inverseJoinColumns = {
 			@JoinColumn(name = "id_campeonato") })
 	private List<Campeonato> campeonatos;

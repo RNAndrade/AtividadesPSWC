@@ -12,6 +12,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 @Entity
 public class Campeonato {
 
@@ -23,10 +26,15 @@ public class Campeonato {
 	private Calendar dataInicio;
 	private Calendar dataFim;
 	@ManyToMany
+	@Cascade(CascadeType.ALL)
 	@JoinTable(name = "campeonato_time", joinColumns = { @JoinColumn(name = "id_campeonato") }, inverseJoinColumns = {
 			@JoinColumn(name = "id_time") })
 	private List<Time> times;
-	
+
+	public Campeonato() {
+		super();
+	}
+
 	public Campeonato(String nome, Calendar dataInicio, Calendar dataFim, List<Time> times) {
 		super();
 		this.nome = nome;

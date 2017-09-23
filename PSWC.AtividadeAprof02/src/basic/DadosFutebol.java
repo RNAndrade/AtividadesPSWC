@@ -16,7 +16,7 @@ public class DadosFutebol {
 		EntityTransaction transaction = factory.getTransaction();
 		transaction.begin();
 
-		//--------------Técnicos---------------
+		// --------------Técnicos---------------
 		Calendar data1 = Calendar.getInstance();
 		data1.set(1958, 03, 10);
 		Calendar data2 = Calendar.getInstance();
@@ -44,6 +44,7 @@ public class DadosFutebol {
 		Tecnico pauloAutuori = factory.find(Tecnico.class, new Integer(1));
 		Tecnico manoMenezes = factory.find(Tecnico.class, new Integer(2));
 		Tecnico marceloOliveira = factory.find(Tecnico.class, new Integer(3));
+
 		Time team1 = new Time("São Paulo", "SP", 15, pauloAutuori);
 		Time team2 = new Time("Cruzeiro", "MG", 32, manoMenezes);
 		Time team3 = new Time("Flamengo", "RJ", 30, marceloOliveira);
@@ -65,7 +66,6 @@ public class DadosFutebol {
 		Calendar data11 = Calendar.getInstance();
 		data11.set(1984, 11, 25);
 
-		//--------------Instância de times------------
 		Time saoPaulo = factory.find(Time.class, new Integer(1));
 		Time cruzeiro = factory.find(Time.class, new Integer(2));
 		Time flamengo = factory.find(Time.class, new Integer(3));
@@ -116,10 +116,11 @@ public class DadosFutebol {
 		dataFim1.set(2013, 7, 13);
 		Calendar dataFim2 = Calendar.getInstance();
 		dataFim2.set(2013, 10, 10);
-		
+
 		ArrayList<Time> times = new ArrayList<>();
 		times.add(flamengo);
 		times.add(saoPaulo);
+		times.add(cruzeiro);
 
 		Campeonato camp1 = new Campeonato("Campeonato Brasileiro", dataInicio1, dataFim1, times);
 		Campeonato camp2 = new Campeonato("Taça Glória do Goitá", dataInicio2, dataFim2, times);
@@ -127,7 +128,6 @@ public class DadosFutebol {
 		factory.persist(camp1);
 		factory.persist(camp2);
 
-		
 		transaction.commit();
 		factory.close();
 		managerFactory.close();
