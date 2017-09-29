@@ -21,5 +21,7 @@ public class Consultas {
 			System.out.println(jogador.getNome());
 		}
 		
+		System.out.println(DAO.qtdJogadorTime(manager, "SP", "S%"));
+		
 	}
 }

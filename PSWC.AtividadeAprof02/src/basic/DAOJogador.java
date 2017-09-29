@@ -25,5 +25,13 @@ public class DAOJogador implements IDAOJogador {
 		ArrayList<Jogador> players = (ArrayList<Jogador>) query.getResultList();
 		return players;
 	}
+	
+	public Long qtdJogadorTime(EntityManager manager, String uf, String letra) {
+		Query query = manager.createQuery("SELECT COUNT(j) FROM Jogador j WHERE j.time.estado = :uf AND j.time.nome LIKE :letra");
+		query.setParameter("uf", uf);
+		query.setParameter("letra", letra);
+		Long qtd = (Long) query.getSingleResult();
+		return qtd;
+	}
 
 }
