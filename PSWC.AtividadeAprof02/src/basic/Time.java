@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,7 +27,7 @@ public class Time {
 	private String nome;
 	private String estado;
 	private Integer pontos;
-	@OneToMany(mappedBy = "time")
+	@OneToMany(mappedBy = "time", fetch = FetchType.EAGER)
 	@Cascade(CascadeType.DELETE)
 	private List<Jogador> jogadores;
 	@OneToOne
