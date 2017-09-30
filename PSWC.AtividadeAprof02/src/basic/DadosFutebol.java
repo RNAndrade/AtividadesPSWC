@@ -12,8 +12,8 @@ public class DadosFutebol {
 
 	public static void main(String[] args) {
 		EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("unidadePersistencia");
-		EntityManager factory = managerFactory.createEntityManager();
-		EntityTransaction transaction = factory.getTransaction();
+		EntityManager manager = managerFactory.createEntityManager();
+		EntityTransaction transaction = manager.getTransaction();
 		transaction.begin();
 
 		// --------------Técnicos---------------
@@ -26,9 +26,9 @@ public class DadosFutebol {
 		Tecnico coach1 = new Tecnico("Paulo Autuori", data1, 102000.00);
 		Tecnico coach2 = new Tecnico("Mano Menezes", data2, 90000.00);
 		Tecnico coach3 = new Tecnico("Marcelo Oliveira", data3, 82500.00);
-		factory.persist(coach1);
-		factory.persist(coach2);
-		factory.persist(coach3);
+		manager.persist(coach1);
+		manager.persist(coach2);
+		manager.persist(coach3);
 
 		// ---------------Juizes---------------
 		Calendar data4 = Calendar.getInstance();
@@ -37,20 +37,20 @@ public class DadosFutebol {
 		data5.set(1973, 12, 16);
 		Juiz judge1 = new Juiz("Armando Marques", data4, 24000.00);
 		Juiz judge2 = new Juiz("Paulo Cesar de Oliveira", data5, 35000.00);
-		factory.persist(judge1);
-		factory.persist(judge2);
+		manager.persist(judge1);
+		manager.persist(judge2);
 
 		// ---------------Times---------------
-		Tecnico pauloAutuori = factory.find(Tecnico.class, new Integer(1));
-		Tecnico manoMenezes = factory.find(Tecnico.class, new Integer(2));
-		Tecnico marceloOliveira = factory.find(Tecnico.class, new Integer(3));
+		Tecnico pauloAutuori = manager.find(Tecnico.class, new Integer(1));
+		Tecnico manoMenezes = manager.find(Tecnico.class, new Integer(2));
+		Tecnico marceloOliveira = manager.find(Tecnico.class, new Integer(3));
 
 		Time team1 = new Time("São Paulo", "SP", 15, pauloAutuori);
 		Time team2 = new Time("Cruzeiro", "MG", 32, manoMenezes);
 		Time team3 = new Time("Flamengo", "RJ", 30, marceloOliveira);
-		factory.persist(team1);
-		factory.persist(team2);
-		factory.persist(team3);
+		manager.persist(team1);
+		manager.persist(team2);
+		manager.persist(team3);
 
 		// ---------------Jogadores---------------
 		Calendar data6 = Calendar.getInstance();
@@ -66,9 +66,9 @@ public class DadosFutebol {
 		Calendar data11 = Calendar.getInstance();
 		data11.set(1984, 11, 25);
 
-		Time saoPaulo = factory.find(Time.class, new Integer(1));
-		Time cruzeiro = factory.find(Time.class, new Integer(2));
-		Time flamengo = factory.find(Time.class, new Integer(3));
+		Time saoPaulo = manager.find(Time.class, new Integer(1));
+		Time cruzeiro = manager.find(Time.class, new Integer(2));
+		Time flamengo = manager.find(Time.class, new Integer(3));
 
 		Jogador player1 = new Jogador("Rogério Ceni", saoPaulo, data6, 88000.00, 01, true, false, 2, 1);
 		Jogador player2 = new Jogador("Alex Silva", saoPaulo, data7, 45000.00, 02, true, false, 2, 1);
@@ -77,12 +77,12 @@ public class DadosFutebol {
 		Jogador player5 = new Jogador("Souza", saoPaulo, data10, 65000.00, 05, true, true, 1, 1);
 		Jogador player6 = new Jogador("Ilsinho", saoPaulo, data11, 43860.90, 06, false, false, 2, 0);
 
-		factory.persist(player1);
-		factory.persist(player2);
-		factory.persist(player3);
-		factory.persist(player4);
-		factory.persist(player5);
-		factory.persist(player6);
+		manager.persist(player1);
+		manager.persist(player2);
+		manager.persist(player3);
+		manager.persist(player4);
+		manager.persist(player5);
+		manager.persist(player6);
 
 		// ---------------Jogos---------------
 		Calendar data12 = Calendar.getInstance();
@@ -94,18 +94,18 @@ public class DadosFutebol {
 		Calendar data15 = Calendar.getInstance();
 		data15.set(2013, 9, 19);
 
-		Juiz armandoMarques = factory.find(Juiz.class, new Integer(1));
-		Juiz pauloOliveira = factory.find(Juiz.class, new Integer(2));
+		Juiz armandoMarques = manager.find(Juiz.class, new Integer(1));
+		Juiz pauloOliveira = manager.find(Juiz.class, new Integer(2));
 
 		Jogo game1 = new Jogo(saoPaulo, cruzeiro, 2, 1, data12, pauloOliveira);
 		Jogo game2 = new Jogo(cruzeiro, saoPaulo, 0, 0, data13, armandoMarques);
 		Jogo game3 = new Jogo(flamengo, cruzeiro, 1, 1, data14, pauloOliveira);
 		Jogo game4 = new Jogo(saoPaulo, flamengo, 0, 0, data15, armandoMarques);
 
-		factory.persist(game1);
-		factory.persist(game2);
-		factory.persist(game3);
-		factory.persist(game4);
+		manager.persist(game1);
+		manager.persist(game2);
+		manager.persist(game3);
+		manager.persist(game4);
 
 		// ---------------Campeonatos---------------
 		Calendar dataInicio1 = Calendar.getInstance();
@@ -125,11 +125,11 @@ public class DadosFutebol {
 		Campeonato camp1 = new Campeonato("Campeonato Brasileiro", dataInicio1, dataFim1, times);
 		Campeonato camp2 = new Campeonato("Taça Glória do Goitá", dataInicio2, dataFim2, times);
 
-		factory.persist(camp1);
-		factory.persist(camp2);
+		manager.persist(camp1);
+		manager.persist(camp2);
 
 		transaction.commit();
-		factory.close();
+		manager.close();
 		managerFactory.close();
 	}
 
