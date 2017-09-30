@@ -13,7 +13,7 @@ public class FutebolDadosAlteracao {
 		EntityTransaction transaction = factory.getTransaction();
 		transaction.begin();
 
-		/*-------------Alterar placa jogo-------------
+		//-------------Alterar placar jogo-------------
 		Jogo game = factory.find(Jogo.class, new Integer(4));
 		game.setPlacarUm(3);
 		game.setPlacarDois(2);
@@ -38,7 +38,7 @@ public class FutebolDadosAlteracao {
 
 		// -------------Excluir Cruzeiro Jogadores e Técnico-------------
 		Time team2 = factory.find(Time.class, new Integer(2));
-		factory.remove(team2);*/
+		factory.remove(team2);
 
 		// ---------------Posições Times---------------
 
