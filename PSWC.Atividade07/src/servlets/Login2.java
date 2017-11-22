@@ -1,8 +1,8 @@
 package servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,37 +13,32 @@ import javax.servlet.http.HttpSession;
 import basic.Usuario;
 import negocio.UsuarioRN;
 
-@WebServlet("/login")
-public class Login extends HttpServlet {
+@WebServlet("/login2")
+public class Login2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+    public Login2() {
+        super();
 
-	public Login() {
-		super();
-	}
+    }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		PrintWriter writer = response.getWriter();
 		String login, senha;
 
 		login = request.getParameter("login");
 		senha = request.getParameter("senha");
 
 		HttpSession session = request.getSession(true);
-		session.setAttribute("login", login);
+		session.setAttribute("loginUsuario", login);
 		
 		if (new UsuarioRN().logar(new Usuario(login, senha))) {
-			writer.print("<html><body>");
-			writer.print("<center>");
-			writer.print("<h3>Bem Vindo: " + login + "</h3>");
-			writer.print("<h3>Sessão: " + session.getId() + "</h3>");
-			writer.print("</html></body>");
+			RequestDispatcher rd = request.getRequestDispatcher("/principal.jsp");
+			rd.forward(request, response);
 		} else {
-			writer.print("<html><body>");
-			writer.print("<center>");
-			writer.print("<h3>Acesso negado</h3>");
-			writer.print("</html></body>");
+			RequestDispatcher rd = request.getRequestDispatcher("/setimaquestao.jsp");
+			rd.forward(request, response);
 		}
 	}
 
@@ -51,5 +46,4 @@ public class Login extends HttpServlet {
 			throws ServletException, IOException {
 		doGet(request, response);
 	}
-
 }
